@@ -1,15 +1,23 @@
 [theme="dark"] {
-    --backgroud-color: #252d38;
-    --text-color: #c4c6c9;
+    --backgroud-color: #464646;
+    --text-color: #d8d8d8;
+    --link-hover-color: #f07c82;
 }
 
 [theme="light"] {
     --backgroud-color: #fff;
-    --text-color: #3c4858;
+    --text-color: #373e4a;
+    --link-hover-color: #f07c82;
+}
+
+@font-face {
+    font-family: 'MiSans';
+    src: url('https://cdn.zengjunyin.com/font/MiSans-Medium.woff') format('woff');
+    font-display: swap;
 }
 
 body {
-    font-family: Roboto, Noto Sans SC, sans-serif !important;
+    font-family: MiSans, Roboto, Noto Sans SC, sans-serif !important;
 }
 
 #background {
@@ -17,6 +25,7 @@ body {
     z-index: -999;
     width: 100%;
     height: 100%;
+    background-image: url("https://cdn.zengjunyin.com/image/home/background.jpg");
     background-attachment: fixed;
     background-position: center;
     -webkit-background-size: cover;
@@ -37,12 +46,28 @@ body {
     }
 }
 
-.dark {
-    background-image: url("https://cdn.zengjunyin.com/images/background/dark.jpg");
+.dark:after{
+    position:absolute;
+    left: 0;
+    top:0;
+    display: block;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: attr(data-text);
+    transition: background-color 1s ease-in-out;
 }
 
-.light {
-    background-image: url("https://cdn.zengjunyin.com/images/background/light.jpg");
+.light:after{
+    position:absolute;
+    left: 0;
+    top:0;
+    display: block;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    content: attr(data-text);
+    transition: background-color 1s ease-in-out;
 }
 
 .main {
@@ -97,7 +122,7 @@ body {
 
 .nav li a:hover {
     text-decoration: none;
-    color: #30a9de;
+    color: var(--link-hover-color);
 }
 
 li i {
@@ -120,5 +145,5 @@ li i {
 
 .footer a:hover {
     text-decoration: none;
-    color: #30a9de;
+    color: var(--link-hover-color);
 }
